@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
-
+import React, { Component } from 'react'
+import Dashboard from './components/dashboard'
+import Authentication from './components/authentication'
 
 class App extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      loggedIn: false
+    }
   }
 
   fetchTasks = () => {
@@ -18,6 +22,17 @@ class App extends Component {
     return (
       <div className="main-container">
         <h1>!FB Test</h1>
+
+        {this.state.loggedIn ?
+          <div>
+            <Dashboard />
+          </div>
+          :
+          <div>
+            <Authentication/>
+          </div>
+        }
+
         <button onClick={this.fetchTasks}>Get Users</button>
       </div>
     );
