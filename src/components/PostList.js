@@ -13,10 +13,8 @@ class PostList extends Component {
               key={index}
               post={post}
             />
-          )
-          })
-
-: '' }
+          )})
+            : '' }
       </div>
     )
   }
