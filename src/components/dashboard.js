@@ -11,7 +11,7 @@ class Dashboard extends Component {
         DASHBOARD
         <Header />
         <NewPost />
-        <PostList />
+        <PostList posts={this.props.posts}/>
       </div>
     )
   }
