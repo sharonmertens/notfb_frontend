@@ -9,20 +9,25 @@ class NewPost extends Component {
   }
 
   // handle change
-  handleChange = (e) => {
-    this.setState({ keyed_item: e.target.value })
+  handleChange = (event) => {
+    this.setState({ [event.target.value]: event.target.value })
   }
 
   // handle submit
-  handleSubmit = (e) => {
-    e.preventDefault()
+  handleSubmit = (event) => {
+    event.preventDefault()
     console.log(this.state)
     this.clearForm()
   }
 
   // clear the form
   clearForm = () => {
-    this.setState({ keyed_item: '' })
+    this.setState({
+      text: '',
+      image: '',
+      link: '',
+      author: ''
+    })
   }
 
   render () {
