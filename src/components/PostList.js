@@ -12,6 +12,8 @@ class PostList extends Component {
             <Post
               key={index}
               post={post}
+              arrayIndex={index}
+              handleCheck={this.props.handleCheck}
             />
           )})
             : '' }

@@ -37,6 +37,15 @@ class Dashboard extends Component {
     .catch(err => console.log(err))
   }
 
+  // handles updating the post
+  handleCheck = (post, arrayIndex) => {
+    // console.log(post)
+    // console.log(arrayIndex)
+    // manipulate the post data
+
+  }
+
+
   // update state of array
   updateArray = (post, array) => {
     // console.log(post)
@@ -50,7 +59,6 @@ class Dashboard extends Component {
     })
   }
 
-
   render() {
     return (
       <div>
@@ -59,7 +67,10 @@ class Dashboard extends Component {
         <NewPost
           handleCreatePost={this.handleCreatePost}
         />
-        <PostList posts={this.props.posts}/>
+        <PostList
+          posts={this.props.posts}
+          handleCheck={this.handleCheck}
+        />
       </div>
     )
   }

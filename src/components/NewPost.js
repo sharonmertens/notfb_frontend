@@ -24,22 +24,8 @@ class NewPost extends Component {
   // handle submit
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state)
+    // console.log(this.state)
     this.props.handleCreatePost(this.state)
-    // const newPost = {
-    //   text: this.state.text,
-    //   image: this.state.image,
-    //   link: this.state.link,
-    //   author: this.state.author
-    // }
-    // const newPostArray = [newPost, ...this.state.posts.post]
-    // this.setState({
-    //   posts: {post: newPostArray},
-    //   text: '',
-    //   image: '',
-    //   link: '',
-    //   author: ''
-    // })
     this.clearForm()
   }
 

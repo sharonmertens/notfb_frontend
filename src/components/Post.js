@@ -10,6 +10,7 @@ class Post extends Component {
           <h3>{this.props.post.likes}</h3>
           <h3>{this.props.post.dislikes}</h3>
           <h3>{this.props.post.author}</h3>
+          <button onClick={() => {this.props.handleCheck(this.props.post, this.props.arrayIndex)}}>Edit Post</button>
       </div>
     )
   }
