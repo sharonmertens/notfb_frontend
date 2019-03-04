@@ -7,7 +7,16 @@ class PostList extends Component {
     return (
       <div className="post-list">
         this is the post list component
-        <Post />
+        { this.props.posts ? this.props.posts.map((post, index) => {
+          return (
+            <Post
+              key={index}
+              post={post}
+              arrayIndex={index}
+              handleCheck={this.props.handleCheck}
+            />
+          )})
+            : '' }
       </div>
     )
   }

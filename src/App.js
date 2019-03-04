@@ -6,7 +6,12 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loggedIn: true
+      loggedIn: true,
+      text: '',
+      image: '',
+      link: '',
+      author: '',
+      posts: []
     }
   }
 
@@ -19,6 +24,20 @@ class App extends Component {
     })
   }
 
+  // fetch all posts
+  fetchPosts = () => {
+    fetch('http://localhost:3000/posts')
+    .then(data => data.json())
+    .then(jData => {
+      console.log(jData)
+      this.setState({posts: jData})
+    })
+  }
+
+  componentDidMount() {
+    this.fetchPosts()
+  }
+
   render() {
     return (
       <div className="main-container">
@@ -28,7 +47,7 @@ class App extends Component {
         {this.state.loggedIn ?
           <div>
           {/*main dashboard componenets will render in Dashboard.js*/}
-            <Dashboard />
+            <Dashboard posts={this.state.posts}/>
           </div>
           :
           <div>
