@@ -4,19 +4,40 @@ class NewPost extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      keyed_item: ''
+      text: 'Text',
+      image: 'Image',
+      link: 'Link',
+      author: 'Author',
+      // posts: []
     }
   }
 
   // handle change
   handleChange = (event) => {
-    this.setState({ [event.target.value]: event.target.value })
+    // console.log(event.target.value)
+    this.setState({ [event.target.id]: event.target.value })
+    // console.log(this.state)
   }
 
   // handle submit
   handleSubmit = (event) => {
     event.preventDefault()
     console.log(this.state)
+    this.props.handleCreatePost(this.state)
+    // const newPost = {
+    //   text: this.state.text,
+    //   image: this.state.image,
+    //   link: this.state.link,
+    //   author: this.state.author
+    // }
+    // const newPostArray = [newPost, ...this.state.posts.post]
+    // this.setState({
+    //   posts: {post: newPostArray},
+    //   text: '',
+    //   image: '',
+    //   link: '',
+    //   author: ''
+    // })
     this.clearForm()
   }
 
@@ -38,26 +59,30 @@ class NewPost extends Component {
         <input
           type="text"
           placeholder="text"
-          value={this.props.keyed_item}
+          value={this.props.text}
           onChange={this.handleChange}
+          id="text"
         />
         <input
           type="text"
           placeholder="image"
-          value={this.props.keyed_item}
+          value={this.props.image}
           onChange={this.handleChange}
+          id="image"
         />
         <input
           type="text"
           placeholder="link"
-          value={this.props.keyed_item}
+          value={this.props.link}
           onChange={this.handleChange}
+          id="link"
         />
         <input
           type="text"
           placeholder="author"
-          value={this.props.keyed_item}
+          value={this.props.author}
           onChange={this.handleChange}
+          id="author"
         />
         <input type="submit" />
       </form>
