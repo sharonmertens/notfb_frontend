@@ -52,7 +52,7 @@ class Dashboard extends Component {
     // console.log(array)
     this.setState ( prevState => {
       prevState[array].push(post)
-      console.log(prevState)
+      console.log(this.state.posts)
       return {
         [array]: prevState[array]
       }
