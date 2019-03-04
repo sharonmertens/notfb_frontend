@@ -65,7 +65,6 @@ class App extends Component {
 
   }
 
-
   // update state of array
   updateArray = (post, array) => {
     // console.log(post)
@@ -75,6 +74,16 @@ class App extends Component {
       // console.log(prevState)
       return {
         posts: prevState[array]
+      }
+    })
+  }
+
+  // remove a post from array
+  removeFromArray = (array, arrayIndex) => {
+    this.setState( prevState => {
+      prevState[array].splice(arrayIndex, 1)
+      return {
+        [array]: prevState[array]
       }
     })
   }
@@ -103,6 +112,19 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
+  // delete post
+  handleDelete = (postId, arryIndex) => {
+    console.log(postId)
+    console.log(arryIndex)
+    fetch(`http://localhost:3000/posts/${postId}`, {
+      method: 'DELETE'
+    })
+    .then(data => {
+      this.removeFromArray(arryIndex)
+    })
+    .catch(err => console.log(err))
+  }
+
   componentDidMount() {
     this.fetchPosts()
   }
@@ -117,7 +139,11 @@ class App extends Component {
           <div>
           {/*main dashboard componenets will render in Dashboard.js*/}
             <Dashboard
-            posts={this.state.posts} handleCreatePost={this.handleCreatePost} handleCheck={this.handleCheck}/>
+              posts={this.state.posts}
+              handleCreatePost={this.handleCreatePost}
+              handleCheck={this.handleCheck}
+              handleDelete={this.handleDelete}
+            />
           </div>
           :
           <div>
