@@ -61,28 +61,28 @@ class NewPost extends Component {
         <input
           type="text"
           placeholder="text"
-          value={this.props.text}
+          value={this.state.text}
           onChange={this.handleChange}
           id="text"
         />
         <input
           type="text"
           placeholder="image"
-          value={this.props.image}
+          value={this.state.image}
           onChange={this.handleChange}
           id="image"
         />
         <input
           type="text"
           placeholder="link"
-          value={this.props.link}
+          value={this.state.link}
           onChange={this.handleChange}
           id="link"
         />
         <input
           type="text"
           placeholder="author"
-          value={this.props.author}
+          value={this.state.author}
           onChange={this.handleChange}
           id="author"
         />
