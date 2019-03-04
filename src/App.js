@@ -29,8 +29,52 @@ class App extends Component {
     fetch('http://localhost:3000/posts')
     .then(data => data.json())
     .then(jData => {
-      console.log(jData)
+      // console.log(jData)
       this.setState({posts: jData})
+    })
+  }
+
+  // handles creating the post
+  handleCreatePost = (post) => {
+    console.log(this.state.posts)
+    fetch('http://localhost:3000/posts', {
+      body: JSON.stringify(post),
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(createdPost => {
+      // console.log(createdPost);
+      return createdPost.json()
+    })
+    .then(jData => {
+      this.updateArray(jData, 'posts')
+      console.log(jData)
+    })
+    .catch(err => console.log(err))
+  }
+
+  // handles updating the post
+  handleCheck = (post, arrayIndex) => {
+    // console.log(post)
+    // console.log(arrayIndex)
+    // manipulate the post data
+
+  }
+
+
+  // update state of array
+  updateArray = (post, array) => {
+    // console.log(post)
+    // console.log(this.props.posts);
+    this.setState ( prevState => {
+      prevState[array].push(post)
+      // console.log(prevState)
+      return {
+        posts: prevState[array]
+      }
     })
   }
 
@@ -47,7 +91,8 @@ class App extends Component {
         {this.state.loggedIn ?
           <div>
           {/*main dashboard componenets will render in Dashboard.js*/}
-            <Dashboard posts={this.state.posts}/>
+            <Dashboard
+            posts={this.state.posts} handleCreatePost={this.handleCreatePost}/>
           </div>
           :
           <div>
