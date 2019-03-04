@@ -27,7 +27,7 @@ class Dashboard extends Component {
         />
         <PostList
           posts={this.props.posts}
-          handleCheck={this.handleCheck}
+          handleCheck={this.props.handleCheck}
         />
       </div>
     )

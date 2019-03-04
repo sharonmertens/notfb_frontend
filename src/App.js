@@ -61,6 +61,7 @@ class App extends Component {
     // console.log(post)
     // console.log(arrayIndex)
     // manipulate the post data
+    this.editPost(post, arrayIndex)
 
   }
 
@@ -78,6 +79,30 @@ class App extends Component {
     })
   }
 
+  // edit post
+  editPost = (post, index) => {
+    // console.log(post)
+    // console.log(index)
+    // console.log(post.id)
+    console.log(JSON.stringify(post))
+    fetch(`http://localhost:3000/posts/${post.id}`, {
+      body: JSON.stringify(post),
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(updatedPost => {
+      return updatedPost.json()
+    })
+    .then(jData => {
+      // console.log(jData)
+      this.fetchPosts()
+    })
+    .catch(err => console.log(err))
+  }
+
   componentDidMount() {
     this.fetchPosts()
   }
@@ -92,7 +117,7 @@ class App extends Component {
           <div>
           {/*main dashboard componenets will render in Dashboard.js*/}
             <Dashboard
-            posts={this.state.posts} handleCreatePost={this.handleCreatePost}/>
+            posts={this.state.posts} handleCreatePost={this.handleCreatePost} handleCheck={this.handleCheck}/>
           </div>
           :
           <div>

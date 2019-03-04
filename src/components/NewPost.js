@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 class NewPost extends Component {
   constructor(props) {
     super(props)
@@ -10,7 +11,8 @@ class NewPost extends Component {
       likes: 0,
       dislikes: 0,
       author: 'Author',
-      // posts: []
+      // variable to identify if the form is being used to add a new post or edit an existing post
+      submit: 'Add'
     }
   }
 
@@ -25,18 +27,57 @@ class NewPost extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     // console.log(this.state)
+    if (this.state.submit === 'Add') {
     this.props.handleCreatePost(this.state)
     this.clearForm()
+  } else {
+    console.log(this.props.arrayIndex)
+    let updatedPost = {
+      id: this.props.post.id,
+      text: this.state.text,
+      image: this.state.image,
+      link: this.state.link,
+      likes: this.props.post.likes,
+      dislikes: this.props.post.dislikes,
+      author: this.state.author
+    }
+    // send data to handleCheck to update post details
+    this.props.handleCheck(updatedPost, this.props.arrayIndex, 'posts')
+    // change static state to revert to show state
+    this.props.changeStaticState()
   }
+}
 
   // clear the form
   clearForm = () => {
     this.setState({
-      text: '',
-      image: '',
-      link: '',
-      author: ''
+      text: 'Text',
+      image: 'Image',
+      link: 'Link',
+      author: 'Author',
+      submit: 'Add'
     })
+  }
+
+  // check if the form is for editing existing element
+  checkIfEditing = () => {
+    // if there is a post being sent to the form
+    if (this.props.post) {
+      // set the state
+      this.setState({
+        // pull the values in from teh details to display as placeholder so you know what you are editing
+        text: this.props.post.text,
+        image: this.props.post.image,
+        link: this.props.post.link,
+        author: this.props.post.author,
+        submit: 'Update'
+      })
+    }
+  }
+
+  // check if the form is being called by an editing request
+  componentDidMount() {
+    this.checkIfEditing()
   }
 
   render () {
@@ -46,33 +87,34 @@ class NewPost extends Component {
       <form onSubmit={this.handleSubmit}>
         <input
           type="text"
-          placeholder="text"
+          placeholder={this.state.text}
           value={this.state.text}
           onChange={this.handleChange}
           id="text"
         />
         <input
           type="text"
-          placeholder="image"
+          placeholder={this.state.image}
           value={this.state.image}
           onChange={this.handleChange}
           id="image"
         />
         <input
           type="text"
-          placeholder="link"
+          placeholder={this.state.link}
           value={this.state.link}
           onChange={this.handleChange}
           id="link"
         />
         <input
           type="text"
-          placeholder="author"
+          placeholder={this.state.author}
           value={this.state.author}
           onChange={this.handleChange}
           id="author"
         />
-        <input type="submit" />
+        <button onClick={this.props.changeStaticState}>Cancel</button>
+        <button type="submit">{this.state.submit}</button>
       </form>
       </div>
     )
