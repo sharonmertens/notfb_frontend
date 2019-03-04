@@ -31,10 +31,25 @@ class Dashboard extends Component {
       return createdPost.json()
     })
     .then(jData => {
+      this.updateArray(jData, 'posts')
       console.log(jData)
     })
     .catch(err => console.log(err))
   }
+
+  // update state of array
+  updateArray = (post, array) => {
+    // console.log(post)
+    // console.log(array)
+    this.setState ( prevState => {
+      prevState[array].push(post)
+      console.log(prevState)
+      return {
+        [array]: prevState[array]
+      }
+    })
+  }
+
 
   render() {
     return (
