@@ -12,52 +12,10 @@ class Dashboard extends Component {
       // image: '',
       // link: '',
       // author: '',
-      posts: []
+      // posts: []
     }
   }
-  // handles creating the post
-  handleCreatePost = (post) => {
-    console.log(post)
-    fetch('http://localhost:3000/posts', {
-      body: JSON.stringify(post),
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(createdPost => {
-      // console.log(createdPost);
-      return createdPost.json()
-    })
-    .then(jData => {
-      this.updateArray(jData, 'posts')
-      console.log(jData)
-    })
-    .catch(err => console.log(err))
-  }
 
-  // handles updating the post
-  handleCheck = (post, arrayIndex) => {
-    // console.log(post)
-    // console.log(arrayIndex)
-    // manipulate the post data
-
-  }
-
-
-  // update state of array
-  updateArray = (post, array) => {
-    // console.log(post)
-    // console.log(array)
-    this.setState ( prevState => {
-      prevState[array].push(post)
-      console.log(this.state.posts)
-      return {
-        [array]: prevState[array]
-      }
-    })
-  }
 
   render() {
     return (
@@ -65,7 +23,7 @@ class Dashboard extends Component {
         DASHBOARD
         <Header />
         <NewPost
-          handleCreatePost={this.handleCreatePost}
+          handleCreatePost={this.props.handleCreatePost}
         />
         <PostList
           posts={this.props.posts}
