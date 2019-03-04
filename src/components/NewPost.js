@@ -7,6 +7,8 @@ class NewPost extends Component {
       text: 'Text',
       image: 'Image',
       link: 'Link',
+      likes: 0,
+      dislikes: 0,
       author: 'Author',
       // posts: []
     }

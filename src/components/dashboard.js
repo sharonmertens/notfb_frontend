@@ -18,21 +18,22 @@ class Dashboard extends Component {
   // handles creating the post
   handleCreatePost = (post) => {
     console.log(post)
-    // fetch('http://localhost:3000/posts', {
-    //   body: JSON.stringify(post),
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept': 'application/json, text/plain, */*',
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
-    // .then(createdPost => {
-    //   return createdPost.json()
-    // })
-    // .then(jData => {
-    //   console.log(jData)
-    // })
-    // .catch(err => console.log(err))
+    fetch('http://localhost:3000/posts', {
+      body: JSON.stringify(post),
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(createdPost => {
+      // console.log(createdPost);
+      return createdPost.json()
+    })
+    .then(jData => {
+      console.log(jData)
+    })
+    .catch(err => console.log(err))
   }
 
   render() {
