@@ -15,7 +15,7 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`http://localhost:3000/users/login`, requestOptions)
+    return fetch(`https://antifb.herokuapp.com/users/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // login successful if there's a user in the response
@@ -41,12 +41,12 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch(`http://localhost:3000/users`, requestOptions).then(handleResponse);
+    return fetch(`https://antifb.herokuapp.com/users`, requestOptions).then(handleResponse);
 }
 
 function register(user) {
   // console.log(user)
-  fetch('http://localhost:3000/users/register',
+  fetch('https://antifb.herokuapp.com/users/register',
     {
       body: JSON.stringify(user),
       method: 'POST',
