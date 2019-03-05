@@ -28,6 +28,8 @@ class Dashboard extends Component {
         <PostList
           posts={this.props.posts}
           handleCheck={this.props.handleCheck}
+          handleDelete={this.props.handleDelete}
+          currentArray="posts"
         />
       </div>
     )
