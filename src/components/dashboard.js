@@ -16,7 +16,7 @@ class Dashboard extends Component {
       link: '',
       author: '',
       posts: [],
-      users: {},
+      user: {},
       users:[]
     }
   }
