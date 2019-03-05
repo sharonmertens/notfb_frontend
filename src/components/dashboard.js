@@ -120,6 +120,7 @@ class Dashboard extends Component {
     .catch(err => console.log(err))
   }
 
+
   addLikes = (arrayIndex) => {
     console.log(this.state.posts[arrayIndex])
     const newArray = this.state.posts.slice(0)
@@ -132,7 +133,6 @@ class Dashboard extends Component {
     newArray[arrayIndex].dislikes -= 1
     this.setState({ posts: newArray })
   }
-
 
   componentDidMount() {
     this.fetchPosts()

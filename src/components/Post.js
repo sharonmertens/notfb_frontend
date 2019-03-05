@@ -46,6 +46,7 @@ class Post extends Component {
         { /* button click changes static state to false to show edit component */ }
         <button onClick={this.changeStaticState}>Edit Post</button>
         <button onClick={() => this.props.handleDelete(this.props.post.id, this.props.arrayIndex, this.props.currentArray)}>Delete Post</button>
+
         </div> :
 
         // if static state is false, show the edit component

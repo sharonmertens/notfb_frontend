@@ -36,7 +36,6 @@ class App extends Component {
       <div className="jumbotron">
         <Router>
             <div>
-
                 <PrivateRoute exact path="/" component={Dashboard}
                 handleCreatePost={this.handleCreatePost}
                 posts={this.state.posts}
