@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
 import Dashboard from './components/dashboard'
-import Authentication from './components/authentication'
+import Login from './components/Login'
+/////// import authProvider from './authProvider'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+//
+import {PrivateRoute} from './components/PrivateRoute'
+
 
 class App extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
-      loggedIn: true,
+      loggedIn: false,
       text: '',
       image: '',
       link: '',
@@ -103,33 +109,68 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
+  // AUTHENTICATION
+
+  loginUser = (credentials) => {
+    console.log(credentials.username)
+    fetch('http://localhost:3000/users/login', {
+      body: JSON.stringify(credentials),
+      method: 'POST',
+      key: {
+        'user[username]': credentials.username,
+        'user[password]': credentials.password
+      }
+    })
+    .then(
+      this.setState({
+        loggedIn: true
+      })
+    )
+
+  }
+
   componentDidMount() {
     this.fetchPosts()
   }
-
   render() {
-    return (
-      <div className="main-container">
-        <h1>!FB Test</h1>
-        {/*just a test for fetch users*/}
-        <button onClick={this.fetchUsers}>Get Users</button>
-        {this.state.loggedIn ?
-          <div>
-          {/*main dashboard componenets will render in Dashboard.js*/}
-            <Dashboard
-            posts={this.state.posts} handleCreatePost={this.handleCreatePost} handleCheck={this.handleCheck}/>
-          </div>
-          :
-          <div>
-          {/*authentication page components will render in Authentication.js*/}
-            <Authentication/>
-          </div>
-        }
-
-
-      </div>
-    );
-  }
+        return (
+            <div className="jumbotron">
+                <div className="container">
+                    <div className="col-sm-8 col-sm-offset-2">
+                        <Router>
+                            <div>
+                                <PrivateRoute exact path="/" component={Dashboard} />
+                                <Route path="/login" component={Login} />
+                            </div>
+                        </Router>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+  // render() {
+  //   return (
+  //     <div className="main-container">
+  //       <h1>!FB Test</h1>
+  //       {/*just a test for fetch users*/}
+  //       <button onClick={this.fetchUsers}>Get Users</button>
+  //       {this.state.loggedIn ?
+  //         <div>
+  //         {/*main dashboard componenets will render in Dashboard.js*/}
+  //           <Dashboard
+  //           posts={this.state.posts} handleCreatePost={this.handleCreatePost} handleCheck={this.handleCheck}/>
+  //         </div>
+  //         :
+  //         <div>
+  //         {/*authentication page components will render in Authentication.js*/}
+  //           <Authentication
+  //             loginUser={this.loginUser}
+  //           />
+  //         </div>
+  //       }
+  //     </div>
+  //   );
+  // }
 }
 
 export default App;
