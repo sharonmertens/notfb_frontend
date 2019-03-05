@@ -15,6 +15,7 @@ class PostList extends Component {
               arrayIndex={index}
               handleCheck={this.props.handleCheck}
               handleDelete={this.props.handleDelete}
+              currentArray="posts"
             />
           )})
             : '' }

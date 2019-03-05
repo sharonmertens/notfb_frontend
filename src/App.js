@@ -70,6 +70,7 @@ class App extends Component {
     // console.log(post)
     // console.log(this.props.posts);
     this.setState ( prevState => {
+      console.log(prevState[array])
       prevState[array].push(post)
       // console.log(prevState)
       return {
@@ -80,7 +81,9 @@ class App extends Component {
 
   // remove a post from array
   removeFromArray = (array, arrayIndex) => {
+
     this.setState( prevState => {
+      console.log(prevState[array])
       prevState[array].splice(arrayIndex, 1)
       return {
         [array]: prevState[array]
@@ -113,14 +116,14 @@ class App extends Component {
   }
 
   // delete post
-  handleDelete = (postId, arryIndex) => {
+  handleDelete = (postId, arrayIndex, currentArray) => {
     console.log(postId)
-    console.log(arryIndex)
+    console.log(arrayIndex)
     fetch(`http://localhost:3000/posts/${postId}`, {
       method: 'DELETE'
     })
     .then(data => {
-      this.removeFromArray(arryIndex)
+      this.removeFromArray(currentArray, arrayIndex)
     })
     .catch(err => console.log(err))
   }
