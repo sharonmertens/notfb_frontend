@@ -116,10 +116,10 @@ class App extends Component {
   }
 
   // delete post
-  handleDelete = (postId, arrayIndex, currentArray) => {
-    console.log(postId)
+  handleDelete = (id, arrayIndex, currentArray) => {
+    console.log(id)
     console.log(arrayIndex)
-    fetch(`http://localhost:3000/posts/${postId}`, {
+    fetch(`http://localhost:3000/posts/${id}`, {
       method: 'DELETE'
     })
     .then(data => {
