@@ -141,7 +141,7 @@ class App extends Component {
 
   addDislikes = (arrayIndex) => {
     const newArray = this.state.posts.slice(0)
-    newArray[arrayIndex].likes -= 1
+    newArray[arrayIndex].dislikes -= 1
     this.setState({ posts: newArray })
   }
 

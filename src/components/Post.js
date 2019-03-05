@@ -41,7 +41,7 @@ class Post extends Component {
         <h3>{this.props.post.image}</h3>
         <h3>{this.props.post.link}</h3>
         <h3 onClick={() => this.props.addLikes(this.props.arrayIndex)}>{this.props.post.likes}</h3>
-        <h4 onClick={() => this.props.addDislikes(this.props.arrayIndex)}>{this.props.post.dislikes}</h4>
+        <h3 onClick={() => this.props.addDislikes(this.props.arrayIndex)}>{this.props.post.dislikes}</h3>
         <h3>{this.props.post.author}</h3>
         { /* button click changes static state to false to show edit component */ }
         <button onClick={this.changeStaticState}>Edit Post</button>
