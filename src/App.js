@@ -122,7 +122,11 @@ class App extends Component {
                         <Router>
                             <div>
                             <h1>WELCOME TO !FB</h1>
-                                <PrivateRoute exact path="/" component={Dashboard} />
+                                <PrivateRoute exact path="/" component={Dashboard}
+                                handleCreatePost={this.handleCreatePost}
+                                posts={this.state.posts}
+                                handleCheck={this.props.handleCheck}
+                                 />
 
                                 <Route path="/login" component={Login} />
                                 <Route path='/register' component={NewUser}/>
