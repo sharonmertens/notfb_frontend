@@ -120,6 +120,19 @@ class Dashboard extends Component {
     .catch(err => console.log(err))
   }
 
+  addLikes = (arrayIndex) => {
+    console.log(this.state.posts[arrayIndex])
+    const newArray = this.state.posts.slice(0)
+    newArray[arrayIndex].likes += 1
+    this.setState({ posts: newArray })
+  }
+
+  addDislikes = (arrayIndex) => {
+    const newArray = this.state.posts.slice(0)
+    newArray[arrayIndex].dislikes -= 1
+    this.setState({ posts: newArray })
+  }
+
 
   componentDidMount() {
     this.fetchPosts()
@@ -143,6 +156,8 @@ class Dashboard extends Component {
           handleCheck={this.handleCheck}
           handleDelete={this.handleDelete}
           currentArray="posts"
+          addLikes={this.state.addLikes}
+          addDislikes={this.state.addDislikes}
         />
       </div>
     )
