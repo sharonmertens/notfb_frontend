@@ -109,25 +109,25 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
-  // AUTHENTICATION
-
-  loginUser = (credentials) => {
-    console.log(credentials.username)
-    fetch('http://localhost:3000/users/login', {
-      body: JSON.stringify(credentials),
-      method: 'POST',
-      key: {
-        'user[username]': credentials.username,
-        'user[password]': credentials.password
-      }
-    })
-    .then(
-      this.setState({
-        loggedIn: true
-      })
-    )
-
-  }
+  // // AUTHENTICATION
+  //
+  // loginUser = (credentials) => {
+  //   console.log(credentials.username)
+  //   fetch('http://localhost:3000/users/login', {
+  //     body: JSON.stringify(credentials),
+  //     method: 'POST',
+  //     key: {
+  //       'user[username]': credentials.username,
+  //       'user[password]': credentials.password
+  //     }
+  //   })
+  //   .then(
+  //     this.setState({
+  //       loggedIn: true
+  //     })
+  //   )
+  //
+  // }
 
   componentDidMount() {
     this.fetchPosts()

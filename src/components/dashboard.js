@@ -4,6 +4,8 @@ import Header from './Header'
 import NewPost from './NewPost'
 import PostList from './PostList'
 
+import {userService} from '../services/user.service.js'
+
 class Dashboard extends Component {
   constructor(props) {
     super(props)
@@ -17,10 +19,12 @@ class Dashboard extends Component {
   }
 
 
+
   render() {
     return (
       <div>
         DASHBOARD
+        <link to='/login'>Log Out</link>
         <Header />
         <NewPost
           handleCreatePost={this.props.handleCreatePost}
