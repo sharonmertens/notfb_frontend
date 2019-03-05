@@ -37,12 +37,13 @@ class Post extends Component {
       { this.state.static ?
         <div className="post-show">
         { /* if static state is true, show the 'show' state post */ }
-        <h3>{this.props.post.text}</h3>
-        <h3>{this.props.post.image}</h3>
-        <h3>{this.props.post.link}</h3>
+        <h1 className="author">{this.props.post.author}</h1>
+        <h3 className="text">{this.props.post.text}</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA7B2p2QIS4skzZZ9nEPtnhHsusf31V-NcI6WZ_nbfSbEcRqQH"/>
+        <br/>
+        <a href="{this.props.post.link}">{this.props.post.link}</a>
         <h3 onClick={() => this.props.addLikes(this.props.arrayIndex)}>{this.props.post.likes}</h3>
         <h3 onClick={() => this.props.addDislikes(this.props.arrayIndex)}>{this.props.post.dislikes}</h3>
-        <h3>{this.props.post.author}</h3>
         { /* button click changes static state to false to show edit component */ }
         <button onClick={this.changeStaticState}>Edit Post</button>
         <button onClick={() => this.props.handleDelete(this.props.post.id, this.props.arrayIndex, this.props.currentArray)}>Delete Post</button>
