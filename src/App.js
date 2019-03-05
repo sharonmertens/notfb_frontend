@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Dashboard from './components/dashboard'
 import Login from './components/Login'
+import NewUser from './components/NewUser'
 /////// import authProvider from './authProvider'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 //
@@ -12,7 +13,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loggedIn: false,
+      // loggedIn: false,
       text: '',
       image: '',
       link: '',
@@ -109,25 +110,6 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
-  // // AUTHENTICATION
-  //
-  // loginUser = (credentials) => {
-  //   console.log(credentials.username)
-  //   fetch('http://localhost:3000/users/login', {
-  //     body: JSON.stringify(credentials),
-  //     method: 'POST',
-  //     key: {
-  //       'user[username]': credentials.username,
-  //       'user[password]': credentials.password
-  //     }
-  //   })
-  //   .then(
-  //     this.setState({
-  //       loggedIn: true
-  //     })
-  //   )
-  //
-  // }
 
   componentDidMount() {
     this.fetchPosts()
@@ -139,8 +121,11 @@ class App extends Component {
                     <div className="col-sm-8 col-sm-offset-2">
                         <Router>
                             <div>
+                            <h1>WELCOME TO !FB</h1>
                                 <PrivateRoute exact path="/" component={Dashboard} />
+
                                 <Route path="/login" component={Login} />
+                                <Route path='/register' component={NewUser}/>
                             </div>
                         </Router>
                     </div>

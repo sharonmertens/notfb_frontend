@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom';
 
 import Header from './Header'
 import NewPost from './NewPost'
@@ -10,14 +11,18 @@ class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      // text: '',
-      // image: '',
-      // link: '',
-      // author: '',
-      // posts: []
+      users: {},
+      users:[]
     }
   }
 
+  componentDidMount() {
+    this.setState({
+      user: JSON.parse(localStorage.getItem('user')),
+      users: {loading: true}
+    })
+    userService.getAll().then(users => this.setState({users}))
+  }
 
 
   render() {
