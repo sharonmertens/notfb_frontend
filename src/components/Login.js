@@ -53,7 +53,7 @@ class Login extends Component {
     return (
       <div>
         <h2>Log In</h2>
-        <button onClick={this.setRedirect}>Register</button>
+
         <form name="form" onSubmit={this.handleSubmit}>
           <div className={'form-group' + (this.submitted && !this.username ? ' has-error' : '')}>
               <label htmlFor="username">Username</label>
@@ -73,7 +73,7 @@ class Login extends Component {
               <button className="btn btn-primary" disabled={this.loading}>Login</button>
               {this.loading}
           </div>
-
+          <Link to='/register'>Register</Link>
           {this.error &&
               <div className={'alert alert-danger'}>{this.error}</div>
           }

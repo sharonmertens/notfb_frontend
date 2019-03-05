@@ -53,6 +53,7 @@ class NewUser extends Component {
             value={this.state.password}
             onChange={this.handleChange}/>
           <input type='submit'/>
+          <Link to='/login'>Login</Link>
         </form>
       </div>
 

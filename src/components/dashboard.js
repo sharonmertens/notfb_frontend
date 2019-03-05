@@ -29,7 +29,7 @@ class Dashboard extends Component {
     return (
       <div>
         DASHBOARD
-        <link to='/login'>Log Out</link>
+        <Link to='/login'>Log Out</Link>
         <Header />
         <NewPost
           handleCreatePost={this.props.handleCreatePost}
