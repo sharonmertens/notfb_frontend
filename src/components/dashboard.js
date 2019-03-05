@@ -134,8 +134,6 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        DASHBOARD
-        <Link to='/login'>Log Out</Link>
         <Header />
         <NewPost
           handleCreatePost={this.handleCreatePost}
