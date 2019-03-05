@@ -72,16 +72,28 @@ class App extends Component {
 
   }
 
-
   // update state of array
   updateArray = (post, array) => {
     // console.log(post)
     // console.log(this.props.posts);
     this.setState ( prevState => {
+      console.log(prevState[array])
       prevState[array].push(post)
       // console.log(prevState)
       return {
         posts: prevState[array]
+      }
+    })
+  }
+
+  // remove a post from array
+  removeFromArray = (array, arrayIndex) => {
+
+    this.setState( prevState => {
+      console.log(prevState[array])
+      prevState[array].splice(arrayIndex, 1)
+      return {
+        [array]: prevState[array]
       }
     })
   }
@@ -110,23 +122,44 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
+  // delete post
+  handleDelete = (id, arrayIndex, currentArray) => {
+    console.log(id)
+    console.log(arrayIndex)
+    fetch(`http://localhost:3000/posts/${id}`, {
+      method: 'DELETE'
+    })
+    .then(data => {
+      this.removeFromArray(currentArray, arrayIndex)
+    })
+    .catch(err => console.log(err))
+  }
 
   componentDidMount() {
     this.fetchPosts()
   }
   render() {
-        return (
-            <div className="jumbotron">
-                <div className="container">
-                    <div className="col-sm-8 col-sm-offset-2">
-                        <Router>
-                            <div>
-                            <h1>WELCOME TO !FB</h1>
-                                <PrivateRoute exact path="/" component={Dashboard}
-                                handleCreatePost={this.handleCreatePost}
-                                posts={this.state.posts}
-                                handleCheck={this.props.handleCheck}
-                                 />
+    return (
+      <div className="main-container">
+        <h1>!FB Test</h1>
+        {/*just a test for fetch users*/}
+        <button onClick={this.fetchUsers}>Get Users</button>
+        {this.state.loggedIn ?
+          <div>
+          {/*main dashboard componenets will render in Dashboard.js*/}
+            <Dashboard
+              posts={this.state.posts}
+              handleCreatePost={this.handleCreatePost}
+              handleCheck={this.handleCheck}
+              handleDelete={this.handleDelete}
+            />
+          </div>
+          :
+          <div>
+          {/*authentication page components will render in Authentication.js*/}
+            <Authentication/>
+          </div>
+        }
 
                                 <Route path="/login" component={Login} />
                                 <Route path='/register' component={NewUser}/>
