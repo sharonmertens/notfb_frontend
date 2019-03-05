@@ -24,7 +24,7 @@ class App extends Component {
 
   // initial get users
   fetchUsers = () => {
-    fetch('https://antifb.herokuapp.com/users')
+    fetch('http://localhost:3000/users')
     .then(data => data.json())
     .then(jData => {
       console.log(jData);
@@ -36,12 +36,11 @@ class App extends Component {
       <div className="jumbotron">
         <Router>
             <div>
-                <PrivateRoute exact path="/" component={Dashboard}
+                <PrivateRoute exact path="/posts" component={Dashboard}
                 handleCreatePost={this.handleCreatePost}
                 posts={this.state.posts}
                 handleCheck={this.handleCheck}
                  />
-
                 <Route path="/login" component={Login} />
                 <Route path='/register' component={NewUser}/>
             </div>
