@@ -121,6 +121,19 @@ class Dashboard extends Component {
   }
 
 
+  addLikes = (arrayIndex) => {
+    console.log(this.state.posts[arrayIndex])
+    const newArray = this.state.posts.slice(0)
+    newArray[arrayIndex].likes += 1
+    this.setState({ posts: newArray })
+  }
+
+  addDislikes = (arrayIndex) => {
+    const newArray = this.state.posts.slice(0)
+    newArray[arrayIndex].dislikes -= 1
+    this.setState({ posts: newArray })
+  }
+
   componentDidMount() {
     this.fetchPosts()
     this.setState({
@@ -143,6 +156,8 @@ class Dashboard extends Component {
           handleCheck={this.handleCheck}
           handleDelete={this.handleDelete}
           currentArray="posts"
+          addLikes={this.addLikes}
+          addDislikes={this.addDislikes}
         />
       </div>
     )
