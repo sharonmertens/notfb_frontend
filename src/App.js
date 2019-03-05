@@ -132,6 +132,19 @@ class App extends Component {
     this.fetchPosts()
   }
 
+  addLikes = (arrayIndex) => {
+    console.log(this.state.posts[arrayIndex])
+    const newArray = this.state.posts.slice(0)
+    newArray[arrayIndex].likes += 1
+    this.setState({ posts: newArray })
+  }
+
+  addDislikes = (arrayIndex) => {
+    const newArray = this.state.posts.slice(0)
+    newArray[arrayIndex].likes -= 1
+    this.setState({ posts: newArray })
+  }
+
   render() {
     return (
       <div className="main-container">
@@ -146,6 +159,8 @@ class App extends Component {
               handleCreatePost={this.handleCreatePost}
               handleCheck={this.handleCheck}
               handleDelete={this.handleDelete}
+              addLikes={this.addLikes}
+              addDislikes={this.addDislikes}
             />
           </div>
           :
