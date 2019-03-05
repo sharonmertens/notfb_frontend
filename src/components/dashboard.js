@@ -156,8 +156,8 @@ class Dashboard extends Component {
           handleCheck={this.handleCheck}
           handleDelete={this.handleDelete}
           currentArray="posts"
-          addLikes={this.state.addLikes}
-          addDislikes={this.state.addDislikes}
+          addLikes={this.addLikes}
+          addDislikes={this.addDislikes}
         />
       </div>
     )
