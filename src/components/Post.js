@@ -41,7 +41,7 @@ class Post extends Component {
         <h3 className="text">{this.props.post.text}</h3>
         <img className="image-link" src={this.props.post.image}/>
         <br/>
-        <a href="{this.props.post.link}">{this.props.post.link}</a>
+        <a href={this.props.post.link}>{this.props.post.link}</a>
         <div className="likes">
           <div className="likes-only">
             <p className="numbers">{this.props.post.likes}</p>
