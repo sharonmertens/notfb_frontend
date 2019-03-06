@@ -6,6 +6,7 @@ export const userService = {
     login,
     logout,
     register,
+    loggedIn,
     getAll
 };
 
@@ -32,8 +33,11 @@ function login(username, password) {
         if (user) {
             // store user details and basic auth credentials in local storage
             // to keep user logged in between page refreshes
+            // console.log(user.user.username);
+            // console.log(user.token);
             user.authdata = window.btoa(username + ':' + password);
-            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('user', JSON.stringify(user.user.username));
+            localStorage.setItem('token', JSON.stringify(user.token))
         }
 
         return user;
@@ -64,12 +68,13 @@ function setToken(token) {
 }
 
 function getToken() {
-  return localStorage.getItem('id_token')
+  return localStorage.getItem('token')
 }
 
 function logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user')
+    localStorage.removeItem('token')
     // window.location.replace('/login')
 }
 

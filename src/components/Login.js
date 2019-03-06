@@ -49,6 +49,13 @@ class Login extends Component {
     })
   }
 
+  componentDidMount(){
+    if(userService.loggedIn()) {
+      const { from } = this.props.location.state || {from: {pathname: '/posts'}}
+      this.props.history.push(from)
+    }
+  }
+
   render() {
     return (
       <div>
