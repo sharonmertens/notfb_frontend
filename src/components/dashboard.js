@@ -167,20 +167,9 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>
+      <div className='dashboard'>
 
         <Header />
-        {this.state.newPost ?
-          <NewPost
-            handleNewPost={this.handleNewPost}
-            handleCreatePost={this.handleCreatePost}
-          />
-          :
-          <div className='new-post-btn'>
-            <button onClick={this.handleNewPost}>New Post</button>
-          </div>
-        }
-
         <PostList
           posts={this.state.posts}
           handleCheck={this.handleCheck}
@@ -195,7 +184,7 @@ class Dashboard extends Component {
             handleCreatePost={this.handleCreatePost}
           />
           :
-          <button onClick={this.handleNewPost}>Post</button>
+          <button clasName='new-post-btn' onClick={this.handleNewPost}>Post</button>
         }
         {this.state.profile ?
           <Profile />
