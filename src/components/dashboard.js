@@ -26,7 +26,7 @@ class Dashboard extends Component {
 
   // fetch all posts
   fetchPosts = () => {
-    fetch('http://localhost:3000/posts')
+    fetch('https://notfb.herokuapp.com/posts')
     .then(data => data.json())
     .then(jData => {
       // console.log(jData)
@@ -37,7 +37,7 @@ class Dashboard extends Component {
   // handles creating the post
   handleCreatePost = (post) => {
     console.log(this.state.posts)
-    fetch('http://localhost:3000/posts', {
+    fetch('https://notfb.herokuapp.com/posts', {
       body: JSON.stringify(post),
       method: 'POST',
       headers: {
@@ -94,7 +94,7 @@ class Dashboard extends Component {
   // edit post
   editPost = (post, index) => {
     console.log(JSON.stringify(post))
-    fetch(`http://localhost:3000/posts/${post.id}`, {
+    fetch(`https://notfb.herokuapp.com/posts/${post.id}`, {
       body: JSON.stringify(post),
       method: 'PUT',
       headers: {
@@ -114,7 +114,7 @@ class Dashboard extends Component {
 
   // delete post
   handleDelete = (id, arrayIndex, currentArray) => {
-    fetch(`http://localhost:3000/posts/${id}`, {
+    fetch(`https://notfb.herokuapp.com/posts/${id}`, {
       method: 'DELETE'
     })
     .then(data => {

@@ -12,7 +12,7 @@ export const userService = {
 
 function login(username, password) {
   // console.log(JSON.stringify({username, password}));
-  return fetch(`http://localhost:3000/users/login?user[username]=${username}&user[password]=${password}`,
+  return fetch(`https://notfb.herokuapp.com/users/login?user[username]=${username}&user[password]=${password}`,
     {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -24,7 +24,7 @@ function login(username, password) {
     //     body: JSON.stringify({ username, password })
     // };
     //
-    // return fetch(`http://localhost:3000/users/login`, requestOptions)
+    // return fetch(`https://notfb.herokuapp.com/users/login`, requestOptions)
     .then(handleResponse)
     .then(user => {
       // setToken(res.token)
@@ -89,12 +89,12 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch(`http://localhost:3000/users`, requestOptions).then(handleResponse);
+    return fetch(`https://notfb.herokuapp.com/users`, requestOptions).then(handleResponse);
 }
 
 function register(user) {
   // console.log(user)
-  fetch('http://localhost:3000/users/register',
+  fetch('https://notfb.herokuapp.com/users/register',
     {
       body: JSON.stringify(user),
       method: 'POST',
