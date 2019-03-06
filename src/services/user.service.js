@@ -10,9 +10,11 @@ export const userService = {
     getAll
 };
 
+let api_url = 'http://localhost:3000'
+
 function login(username, password) {
   // console.log(JSON.stringify({username, password}));
-  return fetch(`http:localhost:3000/users/login?user[username]=${username}&user[password]=${password}`,
+  return fetch(api_url + `/users/login?user[username]=${username}&user[password]=${password}`,
     {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -24,20 +26,23 @@ function login(username, password) {
     //     body: JSON.stringify({ username, password })
     // };
     //
-    // return fetch(`http:localhost:3000/users/login`, requestOptions)
+    // return fetch(`http://localhost:3000/users/login`, requestOptions)
     .then(handleResponse)
     .then(user => {
       // setToken(res.token)
       // return res
         // login successful if there's a user in the response
-        if (user) {
-            // store user details and basic auth credentials in local storage
-            // to keep user logged in between page refreshes
-            // console.log(user.user.username);
-            // console.log(user.token);
-            user.authdata = window.btoa(username + ':' + password);
-            localStorage.setItem('user', JSON.stringify(user.user.username));
-            localStorage.setItem('token', JSON.stringify(user.token))
+        if (user.status === 401) {
+          alert('Wrong username or password')
+
+        } else {
+          // store user details and basic auth credentials in local storage
+          // to keep user logged in between page refreshes
+          // console.log(user.user.username);
+          // console.log(user.token);
+          user.authdata = window.btoa(username + ':' + password);
+          localStorage.setItem('user', JSON.stringify(user.user.username));
+          localStorage.setItem('token', JSON.stringify(user.token))
         }
 
         return user;
@@ -86,12 +91,12 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch(`http:localhost:3000/users`, requestOptions).then(handleResponse);
+    return fetch(api_url + `/users`, requestOptions).then(handleResponse);
 }
 
 function register(user) {
   // console.log(user)
-  fetch('http:localhost:3000/users/register',
+  fetch(api_url + '/users/register',
     {
       body: JSON.stringify(user),
       method: 'POST',

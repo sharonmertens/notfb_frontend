@@ -8,6 +8,8 @@ import Profile from './Profile'
 
 import {userService} from '../services/user.service.js'
 
+let api_url = 'http://localhost:3000'
+
 class Dashboard extends Component {
   constructor(props) {
     super(props)
@@ -26,7 +28,7 @@ class Dashboard extends Component {
 
   // fetch all posts
   fetchPosts = () => {
-    fetch('http:localhost:3000/posts')
+    fetch(api_url + '/posts')
     .then(data => data.json())
     .then(jData => {
       // console.log(jData)
@@ -37,7 +39,7 @@ class Dashboard extends Component {
   // handles creating the post
   handleCreatePost = (post) => {
     console.log(this.state.posts)
-    fetch('http:localhost:3000/posts', {
+    fetch(api_url + '/posts', {
       body: JSON.stringify(post),
       method: 'POST',
       headers: {
@@ -94,7 +96,7 @@ class Dashboard extends Component {
   // edit post
   editPost = (post, index) => {
     console.log(JSON.stringify(post))
-    fetch(`http:localhost:3000/posts/${post.id}`, {
+    fetch(api_url + `/posts/${post.id}`, {
       body: JSON.stringify(post),
       method: 'PUT',
       headers: {
@@ -114,7 +116,7 @@ class Dashboard extends Component {
 
   // delete post
   handleDelete = (id, arrayIndex, currentArray) => {
-    fetch(`http:localhost:3000/posts/${id}`, {
+    fetch(api_url + `/posts/${id}`, {
       method: 'DELETE'
     })
     .then(data => {
@@ -169,6 +171,7 @@ class Dashboard extends Component {
 
         <Header />
         <NewPost
+          handleNewPost={this.handleNewPost}
           handleCreatePost={this.handleCreatePost}
         />
         <PostList

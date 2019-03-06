@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 import {userService} from '../services/user.service.js'
-import {BrowserRouter, Route, Redirect} from 'react-router-dom'
+import {Route, Redirect} from 'react-router-dom'
 
 class NewUser extends Component {
   constructor(props) {

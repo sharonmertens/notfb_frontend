@@ -56,6 +56,43 @@ body {
   padding: 20px;
 }
 
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+  border: solid gold 1px;
+}
+
+
+.nav {
+  display: flex;
+  margin-left: 50px;
+
+}
+
+.nav > h2 {
+  margin: 0 15px 0 0;
+}
+
+.nav > button {
+  height: 25px;
+  margin-top: 5px;
+}
+
+
+
+.authenticate {
+  padding: 20px;
+}
+
+.form-inputs {
+  padding-right: 50px;
+}
+
+.new-post > form {
+  padding: 20px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
