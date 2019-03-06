@@ -1,6 +1,27 @@
+# !FB
+
+Created By: Anna Lornitzo & Sharon Mertens
+
+#### Deployed on Heroku:
+[Heroku Backend](https://antifb.herokuapp.com/)
+
+[Heroku Frontend](https://notfb.herokuapp.com/)
+
+#### Github:
+[Anna Lornitzo Github](https://github.com/lornitzoa/notfb_frontend)
+
+[Sharon Mertens Github](https://github.com/sharonmertens/notfb_frontend)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This project was built as a way to show full CRUD with react front and backend. You can create a post with text, image, link, and author. There is functionality also to like or dislike posts as well.
+
+* System dependencies
+```
+  "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-scripts": "2.1.5"
+```
 
 In the project directory, you can run:
 
@@ -12,57 +33,29 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+### User Stories:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- As a user I can create an account.
+- As a user I can log in.
+- As a user I can log out.
 
-### `npm run build`
+- As a user, I can create a post.
+- As a user, I can see all posts.
+- As a user, I can see an individual post.
+- As a user, I can edit/update a post.
+- As a user, I can delete a post.
+- As a user, I can like a post.
+- As a user, I can dislike a post.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Wireframe:
+![Wireframe](public/images/wireframe.png)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Things to continue to work on:
+- As a user, I can create a profile to include information.
+- As a user, I can edit my profile.
+- As a user, I can only dislike or like a post, and once clicked again, it just toggles.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Resources:
+-
+-
+-
