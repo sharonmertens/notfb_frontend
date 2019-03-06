@@ -38,7 +38,7 @@ class Dashboard extends Component {
 
   // handles creating the post
   handleCreatePost = (post) => {
-    console.log(this.state.posts)
+
     fetch(api_url + '/posts', {
       body: JSON.stringify(post),
       method: 'POST',
@@ -53,7 +53,8 @@ class Dashboard extends Component {
     })
     .then(jData => {
       this.updateArray(jData, 'posts')
-      console.log(jData)
+      console.log(this.state.posts);
+
     })
     .catch(err => console.log(err))
   }
@@ -170,6 +171,14 @@ class Dashboard extends Component {
       <div className='dashboard'>
 
         <Header />
+        {this.state.newPost ?
+          <NewPost
+            handleNewPost={this.handleNewPost}
+            handleCreatePost={this.handleCreatePost}
+          />
+          :
+          <button className='new-post-btn' onClick={this.handleNewPost}>Post</button>
+        }
         <PostList
           posts={this.state.posts}
           handleCheck={this.handleCheck}
@@ -178,26 +187,6 @@ class Dashboard extends Component {
           addLikes={this.addLikes}
           addDislikes={this.addDislikes}
         />
-        {this.state.newPost ?
-          <NewPost
-            handleNewPost={this.handleNewPost}
-            handleCreatePost={this.handleCreatePost}
-          />
-          :
-          <button clasName='new-post-btn' onClick={this.handleNewPost}>Post</button>
-        }
-        {this.state.profile ?
-          <Profile />
-          :
-          <PostList
-            posts={this.state.posts}
-            handleCheck={this.handleCheck}
-            handleDelete={this.handleDelete}
-            currentArray="posts"
-            addLikes={this.addLikes}
-            addDislikes={this.addDislikes}
-          />
-        }
       </div>
     )
   }

@@ -122,6 +122,10 @@ div {
   margin: 0 auto;
 }
 
+img {
+  max-width: 90%;
+}
+
 .image-link {
   margin: 20px;
   border: 7px solid ivory;

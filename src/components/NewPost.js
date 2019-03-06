@@ -28,26 +28,26 @@ class NewPost extends Component {
     event.preventDefault()
     // console.log(this.state)
     if (this.state.submit === 'Add') {
-    this.props.handleCreatePost(this.state)
-    this.props.handleNewPost()
-    this.clearForm()
-  } else {
-    console.log(this.props.arrayIndex)
-    let updatedPost = {
-      id: this.props.post.id,
-      text: this.state.text,
-      image: this.state.image,
-      link: this.state.link,
-      likes: this.props.post.likes,
-      dislikes: this.props.post.dislikes,
-      author: this.state.author
+      this.props.handleCreatePost(this.state)
+      this.props.handleNewPost()
+      this.clearForm()
+    } else {
+      console.log(this.props.arrayIndex)
+        let updatedPost = {
+          id: this.props.post.id,
+          text: this.state.text,
+          image: this.state.image,
+          link: this.state.link,
+          likes: this.props.post.likes,
+          dislikes: this.props.post.dislikes,
+          author: this.state.author
+        }
+      // send data to handleCheck to update post details
+      this.props.handleCheck(updatedPost, this.props.arrayIndex, 'posts')
+      // change static state to revert to show state
+      this.props.changeStaticState()
     }
-    // send data to handleCheck to update post details
-    this.props.handleCheck(updatedPost, this.props.arrayIndex, 'posts')
-    // change static state to revert to show state
-    this.props.changeStaticState()
   }
-}
 
   // clear the form
   clearForm = () => {
