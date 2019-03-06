@@ -20,7 +20,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        DASHBOARD
+        
         <Header />
         <NewPost
           handleCreatePost={this.props.handleCreatePost}
