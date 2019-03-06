@@ -17,7 +17,7 @@ class Header extends Component {
   setUser = () => {
     let name = JSON.parse(localStorage.user)
     this.setState({
-      user: name.charAt(0).toUpperCase() + name.slice(1) 
+      user: name.charAt(0).toUpperCase() + name.slice(1)
     })
   }
 
@@ -29,9 +29,10 @@ class Header extends Component {
 
     return (
       <div className="header">
-        <button onClick={this.logout}>Log Out</button>
+
+        <Link to='/login'>Log Out</Link>
         <h1>WELCOME TO !FB</h1>
-        <h2>{this.state.user}</h2>
+
       </div>
     )
   }

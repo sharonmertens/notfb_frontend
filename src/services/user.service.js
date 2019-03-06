@@ -12,7 +12,7 @@ export const userService = {
 
 function login(username, password) {
   // console.log(JSON.stringify({username, password}));
-  return fetch(`http://localhost:3000/users/login?user[username]=${username}&user[password]=${password}`,
+  return fetch(`http:localhost:3000/users/login?user[username]=${username}&user[password]=${password}`,
     {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -24,7 +24,7 @@ function login(username, password) {
     //     body: JSON.stringify({ username, password })
     // };
     //
-    // return fetch(`http://localhost:3000/users/login`, requestOptions)
+    // return fetch(`http:localhost:3000/users/login`, requestOptions)
     .then(handleResponse)
     .then(user => {
       // setToken(res.token)
@@ -86,12 +86,12 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch(`http://localhost:3000/users`, requestOptions).then(handleResponse);
+    return fetch(`http:localhost:3000/users`, requestOptions).then(handleResponse);
 }
 
 function register(user) {
   // console.log(user)
-  fetch('http://localhost:3000/users/register',
+  fetch('http:localhost:3000/users/register',
     {
       body: JSON.stringify(user),
       method: 'POST',
@@ -109,6 +109,7 @@ function handleResponse(response) {
         if (!response.ok) {
             if (response.status === 401) {
                 // auto logout if 401 response returned from api
+
                 logout();
                 window.location.reload(true);
             }

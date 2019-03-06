@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from './Header'
 import NewPost from './NewPost'
 import PostList from './PostList'
+import Profile from './Profile'
 
 import {userService} from '../services/user.service.js'
 
@@ -16,6 +17,8 @@ class Dashboard extends Component {
       link: '',
       author: '',
       posts: [],
+      newPost: false,
+      profile: false,
       user: {},
       users:[]
     }
@@ -23,7 +26,7 @@ class Dashboard extends Component {
 
   // fetch all posts
   fetchPosts = () => {
-    fetch('http://localhost:3000/posts')
+    fetch('https://notfb.herokuapp.com/posts')
     .then(data => data.json())
     .then(jData => {
       // console.log(jData)
@@ -34,7 +37,7 @@ class Dashboard extends Component {
   // handles creating the post
   handleCreatePost = (post) => {
     console.log(this.state.posts)
-    fetch('http://localhost:3000/posts', {
+    fetch('https://notfb.herokuapp.com/posts', {
       body: JSON.stringify(post),
       method: 'POST',
       headers: {
@@ -91,7 +94,7 @@ class Dashboard extends Component {
   // edit post
   editPost = (post, index) => {
     console.log(JSON.stringify(post))
-    fetch(`http://localhost:3000/posts/${post.id}`, {
+    fetch(`https://notfb.herokuapp.com/posts/${post.id}`, {
       body: JSON.stringify(post),
       method: 'PUT',
       headers: {
@@ -111,7 +114,7 @@ class Dashboard extends Component {
 
   // delete post
   handleDelete = (id, arrayIndex, currentArray) => {
-    fetch(`http://localhost:3000/posts/${id}`, {
+    fetch(`https://notfb.herokuapp.com/posts/${id}`, {
       method: 'DELETE'
     })
     .then(data => {
@@ -132,6 +135,22 @@ class Dashboard extends Component {
     const newArray = this.state.posts.slice(0)
     newArray[arrayIndex].dislikes -= 1
     this.setState({ posts: newArray })
+  }
+
+  handleNewPost = () => {
+    this.setState({
+      newPost: !this.state.newPost
+    })
+  }
+
+  // PROFILE HANDLERS
+
+
+
+  handleProfile = () => {
+    this.setState({
+      profile: !this.state.profile
+    })
   }
 
   componentDidMount() {
@@ -159,6 +178,26 @@ class Dashboard extends Component {
           addLikes={this.addLikes}
           addDislikes={this.addDislikes}
         />
+        {this.state.newPost ?
+          <NewPost
+            handleNewPost={this.handleNewPost}
+            handleCreatePost={this.handleCreatePost}
+          />
+          :
+          <button onClick={this.handleNewPost}>Post</button>
+        }
+        {this.state.profile ?
+          <Profile />
+          :
+          <PostList
+            posts={this.state.posts}
+            handleCheck={this.handleCheck}
+            handleDelete={this.handleDelete}
+            currentArray="posts"
+            addLikes={this.addLikes}
+            addDislikes={this.addDislikes}
+          />
+        }
       </div>
     )
   }
