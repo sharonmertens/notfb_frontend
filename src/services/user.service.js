@@ -1,5 +1,5 @@
 // import config from 'config';
-import decode from 'jwt-decode'
+// import decode from 'jwt-decode'
 import { authHeader } from '../helpers';
 
 export const userService = {
@@ -49,19 +49,19 @@ function loggedIn() {
   return !!token && !this.isTokenExpired(token)
 }
 
-function isTokenExpired(token) {
-  try {
-    const decoded = decode(token);
-    if (decoded.exp < Date.now() / 1000) { // Checking if token is expired. N
-        return true;
-    }
-    else
-        return false;
-  }
-  catch (err) {
-      return false;
-  }
-}
+// function isTokenExpired(token) {
+//   try {
+//     const decoded = decode(token);
+//     if (decoded.exp < Date.now() / 1000) { // Checking if token is expired. N
+//         return true;
+//     }
+//     else
+//         return false;
+//   }
+//   catch (err) {
+//       return false;
+//   }
+// }
 
 function setToken(token) {
   localStorage.setItem('id_token', token)
