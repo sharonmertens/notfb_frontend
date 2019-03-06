@@ -17,7 +17,7 @@ class Header extends Component {
   setUser = () => {
     let name = JSON.parse(localStorage.user)
     this.setState({
-      user: name.charAt(0).toUpperCase() + name.slice(1)
+      user: name.charAt(0).toUpperCase() + name.slice(1) 
     })
   }
 

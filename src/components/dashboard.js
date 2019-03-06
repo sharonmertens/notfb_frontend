@@ -145,7 +145,7 @@ class Dashboard extends Component {
 
   // PROFILE HANDLERS
 
-  
+
 
   handleProfile = () => {
     this.setState({
@@ -166,9 +166,17 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-
-        <Header
-          handleProfile={this.handleProfile}
+        <Header />
+        <NewPost
+          handleCreatePost={this.handleCreatePost}
+        />
+        <PostList
+          posts={this.state.posts}
+          handleCheck={this.handleCheck}
+          handleDelete={this.handleDelete}
+          currentArray="posts"
+          addLikes={this.addLikes}
+          addDislikes={this.addDislikes}
         />
         {this.state.newPost ?
           <NewPost

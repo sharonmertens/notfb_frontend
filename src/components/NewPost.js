@@ -5,12 +5,12 @@ class NewPost extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      text: '',
-      image: '',
-      link: '',
+      text: 'Text',
+      image: 'Image',
+      link: 'Link',
       likes: 0,
       dislikes: 0,
-      author: '',
+      author: 'Author',
       // variable to identify if the form is being used to add a new post or edit an existing post
       submit: 'Add'
     }
@@ -84,41 +84,37 @@ class NewPost extends Component {
   render () {
     return (
       <div className="new-post">
-
+      this is the new post component
       <form onSubmit={this.handleSubmit}>
         <input
           type="text"
-          placeholder="post text"
+          placeholder={this.state.text}
           value={this.state.text}
           onChange={this.handleChange}
           id="text"
         />
-        <br/>
         <input
           type="text"
-          placeholder="image source"
+          placeholder={this.state.image}
           value={this.state.image}
           onChange={this.handleChange}
           id="image"
         />
-        <br/>
         <input
           type="text"
-          placeholder="url"
+          placeholder={this.state.link}
           value={this.state.link}
           onChange={this.handleChange}
           id="link"
         />
-        <br/>
         <input
           type="text"
-          placeholder="author"
+          placeholder={this.state.author}
           value={this.state.author}
           onChange={this.handleChange}
           id="author"
         />
-        <br/>
-        <button onClick={this.props.handleNewPost}>Cancel</button>
+        <button onClick={this.props.changeStaticState}>Cancel</button>
         <button type="submit">{this.state.submit}</button>
       </form>
       </div>
