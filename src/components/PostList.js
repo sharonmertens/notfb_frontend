@@ -6,7 +6,7 @@ class PostList extends Component {
   render () {
     return (
       <div className="post-list">
-        this is the post list component
+        
         { this.props.posts ? this.props.posts.map((post, index) => {
           return (
             <Post

@@ -147,6 +147,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
+
         <Header />
         <NewPost
           handleCreatePost={this.handleCreatePost}
