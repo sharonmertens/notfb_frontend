@@ -1,15 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Acme|Laila');
+
 * {
-  border: 1px solid gold;
+  /* border: 1px solid gold; */
+  font-family: 'Laila', serif;
+  color: grey;
+}
+
+html {
+  background: url('https://images.unsplash.com/photo-1496954649918-80cc4e7a8076?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
 }
 
 body {
-  margin: 0;
+  width: 90%;
+  margin: 0 auto;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: lightblue;
 }
 
 code {
@@ -19,4 +26,67 @@ code {
 
 div {
   text-align: center;
+}
+
+.post-show {
+  border: 1px solid green;
+  padding: 20px;
+}
+
+.author {
+  background-color: thistle;
+  width: 100%;
+}
+
+.text {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.image-link {
+  margin: 20px;
+  border: 7px solid ivory;
+  border-radius: 15px;
+}
+
+button {
+  border-radius: 5px;
+}
+
+input {
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.likes {
+  display: flex;
+  justify-content: center;
+}
+
+.cute {
+  width: 100px;
+}
+
+.angry {
+  width: 125px;
+  padding-bottom: 20px;
+  margin-top: -17px;
+}
+
+.numbers {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.likes-only, .dislikes-only {
+  margin: 0 20px;
+}
+
+.likes-only > p {
+  color: green;
+}
+
+.dislikes-only > p {
+  color: red;
 }
