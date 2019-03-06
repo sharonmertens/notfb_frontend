@@ -46,21 +46,19 @@ class NewUser extends Component {
         :
         <div>
           <h2>Create User</h2>
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor='username'>Username:</label>
-            <input
-              type='text'
-              id='username'
-              value={this.state.username}
-              onChange={this.handleChange} />
-            <label htmlFor='password'>Password:</label>
-            <input
-              type='password'
-              id='password'
-              value={this.state.password}
-              onChange={this.handleChange}/>
-            <input type='submit'/>
-            <Link to='/login'>Login</Link>
+          <form onSubmit={this.handleSubmit} className='authenticate'>
+            <div className='form-inputs'>
+                <label htmlFor="username">Username</label>
+                <input type="text" value={this.username} onChange={this.handleChange} id='username'/>
+            </div>
+            <div className='form-inputs'>
+                <label htmlFor="password">Password</label>
+                <input type="password" value={this.password} onChange={this.handleChange} id='password'/>
+            </div>
+            <div className="buttons-container">
+                <button type='submit' className="link-btn">Submit</button>
+                <Link className='link-btn' to='/login' >Login</Link>
+            </div>
           </form>
         </div>
       }

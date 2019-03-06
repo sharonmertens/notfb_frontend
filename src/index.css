@@ -19,10 +19,49 @@ body {
   background-color: lightblue;
 }
 
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+  border: solid gold 1px;
+}
+
+
+.nav {
+  display: flex;
+  margin-left: 50px;
+
+}
+
+.nav > h2 {
+  margin: 0 15px 0 0;
+}
+
+.nav > button {
+  height: 25px;
+  margin-top: 5px;
+}
+
+
+
+.authenticate {
+  padding: 20px;
+}
+
+.form-inputs {
+  padding-right: 50px;
+}
+
+.new-post > form {
+  padding: 20px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
 
 div {
   text-align: center;
@@ -51,6 +90,21 @@ div {
 
 button {
   border-radius: 5px;
+}
+
+.link-btn {
+  text-decoration: none;
+  background-color: buttonface;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 3px;
+  margin: 15px;
+  border: solid 1px;
+  cursor: pointer;
+}
+
+.buttons-container {
+  margin-left: 20px;
 }
 
 input {

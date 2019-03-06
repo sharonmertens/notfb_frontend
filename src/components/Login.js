@@ -60,30 +60,19 @@ class Login extends Component {
     return (
       <div>
         <h2>Log In</h2>
-
-        <form name="form" onSubmit={this.handleSubmit}>
-          <div className={'form-group' + (this.submitted && !this.username ? ' has-error' : '')}>
+        <form onSubmit={this.handleSubmit} className='authenticate'>
+          <div className='form-inputs'>
               <label htmlFor="username">Username</label>
-              <input type="text" className="form-control" name="username" value={this.username} onChange={this.handleChange} id='username'/>
-              {this.submitted && !this.username &&
-                  <div className="help-block">Username is required</div>
-              }
+              <input type="text" value={this.username} onChange={this.handleChange} id='username'/>
           </div>
-          <div className={'form-group' + (this.submitted && !this.password ? ' has-error' : '')}>
+          <div className='form-inputs'>
               <label htmlFor="password">Password</label>
-              <input type="password" className="form-control" name="password" value={this.password} onChange={this.handleChange} id='password'/>
-              {this.submitted && !this.password &&
-                  <div className="help-block">Password is required</div>
-              }
+              <input type="password" value={this.password} onChange={this.handleChange} id='password'/>
           </div>
-          <div className="form-group">
-              <button className="btn btn-primary" disabled={this.loading}>Login</button>
-              {this.loading}
+          <div className="buttons-container">
+              <button className="link-btn">Login</button>
+              <Link className='link-btn' to='/register' >Register</Link>
           </div>
-          <Link to='/register'>Register</Link>
-          {this.error &&
-              <div className={'alert alert-danger'}>{this.error}</div>
-          }
         </form>
 
       </div>

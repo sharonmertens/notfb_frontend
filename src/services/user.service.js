@@ -30,14 +30,17 @@ function login(username, password) {
       // setToken(res.token)
       // return res
         // login successful if there's a user in the response
-        if (user) {
-            // store user details and basic auth credentials in local storage
-            // to keep user logged in between page refreshes
-            // console.log(user.user.username);
-            // console.log(user.token);
-            user.authdata = window.btoa(username + ':' + password);
-            localStorage.setItem('user', JSON.stringify(user.user.username));
-            localStorage.setItem('token', JSON.stringify(user.token))
+        if (user.status === 401) {
+          alert('Wrong username or password')
+
+        } else {
+          // store user details and basic auth credentials in local storage
+          // to keep user logged in between page refreshes
+          // console.log(user.user.username);
+          // console.log(user.token);
+          user.authdata = window.btoa(username + ':' + password);
+          localStorage.setItem('user', JSON.stringify(user.user.username));
+          localStorage.setItem('token', JSON.stringify(user.token))
         }
 
         return user;
@@ -109,6 +112,7 @@ function handleResponse(response) {
         if (!response.ok) {
             if (response.status === 401) {
                 // auto logout if 401 response returned from api
+
                 logout();
                 window.location.reload(true);
             }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from './Header'
 import NewPost from './NewPost'
 import PostList from './PostList'
+import Profile from './Profile'
 
 import {userService} from '../services/user.service.js'
 
@@ -16,6 +17,8 @@ class Dashboard extends Component {
       link: '',
       author: '',
       posts: [],
+      newPost: false,
+      profile: false,
       user: {},
       users:[]
     }
@@ -134,6 +137,22 @@ class Dashboard extends Component {
     this.setState({ posts: newArray })
   }
 
+  handleNewPost = () => {
+    this.setState({
+      newPost: !this.state.newPost
+    })
+  }
+
+  // PROFILE HANDLERS
+
+  
+
+  handleProfile = () => {
+    this.setState({
+      profile: !this.state.profile
+    })
+  }
+
   componentDidMount() {
     this.fetchPosts()
     this.setState({
@@ -148,18 +167,29 @@ class Dashboard extends Component {
     return (
       <div>
 
-        <Header />
-        <NewPost
-          handleCreatePost={this.handleCreatePost}
+        <Header
+          handleProfile={this.handleProfile}
         />
-        <PostList
-          posts={this.state.posts}
-          handleCheck={this.handleCheck}
-          handleDelete={this.handleDelete}
-          currentArray="posts"
-          addLikes={this.addLikes}
-          addDislikes={this.addDislikes}
-        />
+        {this.state.newPost ?
+          <NewPost
+            handleNewPost={this.handleNewPost}
+            handleCreatePost={this.handleCreatePost}
+          />
+          :
+          <button onClick={this.handleNewPost}>Post</button>
+        }
+        {this.state.profile ?
+          <Profile />
+          :
+          <PostList
+            posts={this.state.posts}
+            handleCheck={this.handleCheck}
+            handleDelete={this.handleDelete}
+            currentArray="posts"
+            addLikes={this.addLikes}
+            addDislikes={this.addDislikes}
+          />
+        }
       </div>
     )
   }

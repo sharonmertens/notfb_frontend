@@ -29,6 +29,7 @@ class NewPost extends Component {
     // console.log(this.state)
     if (this.state.submit === 'Add') {
     this.props.handleCreatePost(this.state)
+    this.props.handleNewPost()
     this.clearForm()
   } else {
     console.log(this.props.arrayIndex)
@@ -117,7 +118,7 @@ class NewPost extends Component {
           id="author"
         />
         <br/>
-        <button onClick={this.props.changeStaticState}>Cancel</button>
+        <button onClick={this.props.handleNewPost}>Cancel</button>
         <button type="submit">{this.state.submit}</button>
       </form>
       </div>

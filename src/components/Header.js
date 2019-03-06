@@ -29,9 +29,12 @@ class Header extends Component {
 
     return (
       <div className="header">
-        <button onClick={this.logout}>Log Out</button>
         <h1>WELCOME TO !FB</h1>
-        <h2>{this.state.user}</h2>
+        <div className='nav'>
+          <h2 onClick={this.props.handleProfile}>{this.state.user}</h2>
+          <button className='link-button' onClick={this.logout}>Log Out</button>
+        </div>
+
       </div>
     )
   }
