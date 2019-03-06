@@ -34,7 +34,7 @@ class Login extends Component {
     userService.login(this.state.username, this.state.password)
       .then(
         user => {
-          const { from } = this.props.location.state || {from: {pathname: '/'}}
+          const { from } = this.props.location.state || {from: {pathname: '/posts'}}
           this.props.history.push(from)
         },
         error => this.setState({
@@ -47,6 +47,13 @@ class Login extends Component {
     this.setState({
       [e.target.id]: e.target.value
     })
+  }
+
+  componentDidMount(){
+    if(userService.loggedIn()) {
+      const { from } = this.props.location.state || {from: {pathname: '/posts'}}
+      this.props.history.push(from)
+    }
   }
 
   render() {
