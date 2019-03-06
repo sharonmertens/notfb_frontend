@@ -29,9 +29,15 @@ class Header extends Component {
 
     return (
       <div className="header">
+        <div className='nav'>
+          <h2>{this.state.user}</h2>
+          <Link to='/login' className='link-btn'>Log Out</Link>
+        </div>
+        <div className='title'>
+          <h1>WELCOME TO !FB</h1>
+        </div>
 
-        <Link to='/login'>Log Out</Link>
-        <h1>WELCOME TO !FB</h1>
+
 
       </div>
     )

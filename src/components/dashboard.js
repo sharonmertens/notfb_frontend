@@ -170,10 +170,17 @@ class Dashboard extends Component {
       <div>
 
         <Header />
-        <NewPost
-          handleNewPost={this.handleNewPost}
-          handleCreatePost={this.handleCreatePost}
-        />
+        {this.state.newPost ?
+          <NewPost
+            handleNewPost={this.handleNewPost}
+            handleCreatePost={this.handleCreatePost}
+          />
+          :
+          <div className='new-post-btn'>
+            <button onClick={this.handleNewPost}>New Post</button>
+          </div>
+        }
+
         <PostList
           posts={this.state.posts}
           handleCheck={this.handleCheck}

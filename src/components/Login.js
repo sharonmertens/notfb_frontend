@@ -59,8 +59,9 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h2>Log In</h2>
+
         <form onSubmit={this.handleSubmit} className='authenticate'>
+          <h2>Log In</h2>
           <div className='form-inputs'>
               <label htmlFor="username">Username</label>
               <input type="text" value={this.username} onChange={this.handleChange} id='username'/>

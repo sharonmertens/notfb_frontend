@@ -21,9 +21,8 @@ body {
 
 .header {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
   padding: 15px;
-  border: solid gold 1px;
 }
 
 
@@ -49,33 +48,34 @@ body {
 }
 
 .form-inputs {
-  padding-right: 50px;
+  padding-right: 150px;
 }
 
 .new-post > form {
   padding: 20px;
 }
 
-.header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 15px;
-  border: solid gold 1px;
+
+
+.title {
+  display: block;
+  /* border: solid gold; */
+
 }
 
-
 .nav {
+  /* border: solid gold; */
   display: flex;
-  margin-left: 50px;
-
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .nav > h2 {
-  margin: 0 15px 0 0;
+  /* margin: 0 15px 0 0; */
 }
 
-.nav > button {
-  height: 25px;
+.nav > .link-btn {
+  height: 20px;
   margin-top: 5px;
 }
 
@@ -127,6 +127,10 @@ div {
 
 button {
   border-radius: 5px;
+}
+
+.new-post-btn {
+  margin: 50px;
 }
 
 .link-btn {
