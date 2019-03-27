@@ -24,7 +24,7 @@ class App extends Component {
 
   // initial get users
   fetchUsers = () => {
-    fetch('http://localhost:3000/users')
+    fetch('https://notfb.herokuapp.com/users')
     .then(data => data.json())
     .then(jData => {
       console.log(jData);

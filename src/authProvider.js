@@ -3,7 +3,7 @@ import {AUTH_LOGIN} from 'react-admin'
 export default (type, params) => {
   if(type === AUTH_LOGIN) {
     const {username, password} = params
-    const request = new Request('http://localhost:3000/authenticate', {
+    const request = new Request('https://notfb.herokuapp.com/authenticate', {
       method: 'POST',
       boyd: JSON.stringify({username, password}),
       headers: new Headers({'Content-Type: 'application/json})
