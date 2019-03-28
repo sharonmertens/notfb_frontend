@@ -10,7 +10,7 @@ export const userService = {
     getAll
 };
 
-let api_url = 'http://localhost:3000'
+let api_url = 'https://hidden-savannah-74397.herokuapp.com'
 
 //  Login
 function login(username, password) {

@@ -8,7 +8,7 @@ import Profile from './Profile'
 
 import {userService} from '../services/user.service.js'
 
-let api_url = 'http://localhost:3000'
+let api_url = 'https://hidden-savannah-74397.herokuapp.com'
 
 class Dashboard extends Component {
   constructor(props) {
