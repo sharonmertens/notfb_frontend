@@ -35,6 +35,7 @@ class Login extends Component {
       .then(
         user => {
           const { from } = this.props.location.state || {from: {pathname: '/posts'}}
+          console.log('going to posts')
           this.props.history.push(from)
         },
         error => this.setState({
