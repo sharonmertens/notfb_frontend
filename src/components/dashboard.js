@@ -8,7 +8,7 @@ import Profile from './Profile'
 
 import {userService} from '../services/user.service.js'
 
-let api_url = 'http://localhost:3000'
+let api_url = 'https://notfb.herokuapp.com'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -140,6 +140,7 @@ class Dashboard extends Component {
     this.setState({ posts: newArray })
   }
 
+  // Sets state of new post
   handleNewPost = () => {
     this.setState({
       newPost: !this.state.newPost
