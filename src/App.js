@@ -24,7 +24,9 @@ class App extends Component {
 
   // initial get users
   fetchUsers = () => {
-    fetch('https://hidden-savannah-74397.herokuapp.com/users')
+
+    fetch('http://localhost:3000/users')
+
     .then(data => data.json())
     .then(jData => {
       console.log(jData);
